@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kisah — Every story you want to read &amp; watch.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Poppins replaces Plus Jakarta Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['"Poppins"', 'sans-serif'] },
+          colors: {
+            /* Updated primary palette: sky blue #0EA5E9 */
+            primary: '#0EA5E9',
+            'primary-dark': '#0284C7',
+            'sky-soft': '#E0F2FE',
+            'sky-bg': '#F0F9FF',
+          },
+          borderRadius: { '2xl': '1rem', '3xl': '1.5rem' },
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-sky-bg min-h-screen font-sans text-slate-800 antialiased">
+
+  <!-- ========== HEADER ========== -->
+  <header class="kisah-header relative overflow-hidden px-4 py-10 text-white">
+    <!-- Decorative blurred circles -->
+    <div class="deco-circle deco-circle-1" aria-hidden="true"></div>
+    <div class="deco-circle deco-circle-2" aria-hidden="true"></div>
+
+    <div class="relative z-10 mx-auto max-w-4xl flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <!-- Brand + tagline -->
+      <div>
+        <h1 class="text-4xl font-extrabold tracking-tight leading-none">Kisah</h1>
+        <p class="mt-1 text-sm font-medium text-sky-100 opacity-90">Every story you want to read &amp; watch.</p>
+      </div>
+
+      <!-- Header illustration: open book + film strip (inline SVG) -->
+      <div class="header-illustration" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="160" height="72" viewBox="0 0 160 72" fill="none" role="img" aria-label="Open book and film strip illustration">
+          <!-- ---- Open Book ---- -->
+          <!-- Left page -->
+          <path d="M12 60 C12 60 14 20 42 16 L44 60 Z" fill="rgba(255,255,255,0.18)" stroke="rgba(255,255,255,0.55)" stroke-width="1.5" stroke-linejoin="round"/>
+          <!-- Right page -->
+          <path d="M76 60 C76 60 74 20 46 16 L44 60 Z" fill="rgba(255,255,255,0.14)" stroke="rgba(255,255,255,0.55)" stroke-width="1.5" stroke-linejoin="round"/>
+          <!-- Spine -->
+          <line x1="44" y1="60" x2="44" y2="16" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round"/>
+          <!-- Left page lines -->
+          <line x1="20" y1="34" x2="40" y2="32" stroke="rgba(255,255,255,0.35)" stroke-width="1.2" stroke-linecap="round"/>
+          <line x1="21" y1="41" x2="41" y2="39" stroke="rgba(255,255,255,0.35)" stroke-width="1.2" stroke-linecap="round"/>
+          <line x1="22" y1="48" x2="42" y2="46" stroke="rgba(255,255,255,0.35)" stroke-width="1.2" stroke-linecap="round"/>
+          <!-- Right page lines -->
+          <line x1="68" y1="34" x2="48" y2="32" stroke="rgba(255,255,255,0.35)" stroke-width="1.2" stroke-linecap="round"/>
+          <line x1="67" y1="41" x2="47" y2="39" stroke="rgba(255,255,255,0.35)" stroke-width="1.2" stroke-linecap="round"/>
+          <line x1="66" y1="48" x2="46" y2="46" stroke="rgba(255,255,255,0.35)" stroke-width="1.2" stroke-linecap="round"/>
+
+          <!-- ---- Film Strip ---- -->
+          <!-- Main strip body -->
+          <rect x="90" y="18" width="62" height="38" rx="4" fill="rgba(255,255,255,0.14)" stroke="rgba(255,255,255,0.55)" stroke-width="1.5"/>
+          <!-- Top sprocket holes -->
+          <rect x="96" y="20" width="7" height="5" rx="1.5" fill="rgba(255,255,255,0.45)"/>
+          <rect x="108" y="20" width="7" height="5" rx="1.5" fill="rgba(255,255,255,0.45)"/>
+          <rect x="120" y="20" width="7" height="5" rx="1.5" fill="rgba(255,255,255,0.45)"/>
+          <rect x="132" y="20" width="7" height="5" rx="1.5" fill="rgba(255,255,255,0.45)"/>
+          <!-- Bottom sprocket holes -->
+          <rect x="96" y="49" width="7" height="5" rx="1.5" fill="rgba(255,255,255,0.45)"/>
+          <rect x="108" y="49" width="7" height="5" rx="1.5" fill="rgba(255,255,255,0.45)"/>
+          <rect x="120" y="49" width="7" height="5" rx="1.5" fill="rgba(255,255,255,0.45)"/>
+          <rect x="132" y="49" width="7" height="5" rx="1.5" fill="rgba(255,255,255,0.45)"/>
+          <!-- Film frames -->
+          <rect x="96" y="28" width="14" height="16" rx="2" fill="rgba(255,255,255,0.22)" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+          <rect x="114" y="28" width="14" height="16" rx="2" fill="rgba(255,255,255,0.22)" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+          <rect x="132" y="28" width="14" height="16" rx="2" fill="rgba(255,255,255,0.22)" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+          <!-- Play triangle on middle frame -->
+          <path d="M118 34 L126 36 L118 38 Z" fill="rgba(255,255,255,0.65)"/>
+        </svg>
+      </div>
+
+      <!-- Add Item button -->
+      <button
+        id="btn-add"
+        class="add-btn self-start sm:self-auto flex items-center gap-2 rounded-2xl bg-white text-primary font-semibold px-5 py-2.5 text-sm shadow-md hover:shadow-lg transition-all"
+        aria-label="Add a new item"
+      >
+        <!-- Plus icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        Add Item
+      </button>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-4xl px-4 py-8 space-y-8">
+
+    <!-- ========== STATS ROW ========== -->
+    <!--
+      The .stats-glass-bg wrapper provides the gradient surface that makes
+      glassmorphism visible on the stat cards rendered by JS inside #stats-row.
+    -->
+    <div class="stats-glass-bg">
+      <section aria-label="Statistics" id="stats-row" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+        <!-- filled by JS -->
+      </section>
+    </div>
+
+    <!-- ========== FILTER + SEARCH BAR ========== -->
+    <section aria-label="Filters and search" class="space-y-3">
+      <!-- Search + Sort row -->
+      <div class="flex gap-2 items-center">
+        <div class="relative flex-1">
+          <span class="absolute inset-y-0 left-3 flex items-center text-slate-400 pointer-events-none" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </span>
+          <input
+            id="search-input"
+            type="search"
+            placeholder="Search by title…"
+            class="w-full rounded-xl border border-slate-200 bg-white pl-9 pr-4 py-2.5 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-200 shadow-sm"
+            aria-label="Search items by title"
+          />
+        </div>
+        <!-- Sort selector -->
+        <label for="sort-select" class="sr-only">Sort by</label>
+        <select
+          id="sort-select"
+          class="sort-select rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-sky-200 shadow-sm"
+          aria-label="Sort items"
+        >
+          <option value="default">Sort: Default</option>
+          <option value="title">Title (A–Z)</option>
+          <option value="rating">Rating (High–Low)</option>
+          <option value="date">Date Added (New–Old)</option>
+        </select>
+      </div>
+
+      <!-- Filter rows -->
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider mr-1">Status</span>
+        <div id="filter-status" role="group" aria-label="Filter by status" class="flex flex-wrap gap-2">
+          <!-- filled by JS -->
+        </div>
+      </div>
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider mr-1">Type&nbsp;&nbsp;&nbsp;</span>
+        <div id="filter-type" role="group" aria-label="Filter by type" class="flex flex-wrap gap-2">
+          <!-- filled by JS -->
+        </div>
+      </div>
+      <!-- Favorites + Reset row -->
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider mr-1">Quick</span>
+        <button
+          id="btn-favorites"
+          class="filter-pill"
+          data-filter-favorites="true"
+          aria-pressed="false"
+          aria-label="Show favorites only"
+        >
+          <!-- Heart icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          Favorites
+        </button>
+        <button id="btn-reset" class="ml-auto text-xs font-semibold text-primary hover:underline underline-offset-2 transition" aria-label="Reset all filters">Reset Filters</button>
+      </div>
+    </section>
+
+    <!-- ========== VIEW MODE TOGGLE (pure CSS, no JavaScript) ==========
+         The radio inputs are direct siblings of #items-grid so that the
+         CSS general sibling combinator (~) works:
+           #view-grid:checked ~ #items-grid  → 2-column grid
+           #view-list:checked ~ #items-grid  → single-column list
+         Labels inside .view-toggle-bar use for= to target the radios.
+    -->
+
+    <!-- Hidden radio inputs — MUST be direct siblings of #items-grid -->
+    <input type="radio" name="view-mode" id="view-grid" value="grid" checked class="view-radio" />
+    <input type="radio" name="view-mode" id="view-list" value="list" class="view-radio" />
+
+    <!-- Visual toggle bar (labels reference the radios via for=) -->
+    <div class="view-toggle-bar" role="group" aria-label="Switch view mode">
+      <label for="view-grid" class="view-label" aria-label="Grid view" title="Grid view">
+        <!-- 2×2 grid icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        Grid
+      </label>
+      <label for="view-list" class="view-label" aria-label="List view" title="List view">
+        <!-- 3-line list icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        List
+      </label>
+      <!-- Spacer + item count -->
+      <span class="view-toggle-spacer"></span>
+      <span id="items-count" class="view-count" aria-live="polite"></span>
+    </div>
+
+    <!-- ========== ITEMS GRID ========== -->
+    <!--
+      Layout is driven by the radio inputs above via CSS :checked ~ selectors.
+      Default (view-grid checked): 2-column on ≥640 px.
+      view-list checked: single-column.
+    -->
+    <section aria-label="Your list" id="items-grid">
+      <!-- filled by JS -->
+    </section>
+
+  </main>
+
+  <!-- ========== ADD / EDIT MODAL ========== -->
+  <div id="modal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <!-- Backdrop -->
+    <div class="modal-backdrop absolute inset-0 bg-slate-900/40 backdrop-blur-sm" id="modal-backdrop"></div>
+    <div class="modal-panel relative w-full max-w-md bg-white rounded-3xl shadow-2xl p-6 sm:p-8 z-10">
+      <div class="flex items-center justify-between mb-6">
+        <h2 id="modal-title" class="text-xl font-bold text-slate-800">Add Item</h2>
+        <button id="modal-close" class="rounded-xl p-1.5 hover:bg-slate-100 transition text-slate-400 hover:text-slate-700" aria-label="Close modal">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <form id="item-form" novalidate class="space-y-4">
+        <input type="hidden" id="edit-id" />
+
+        <!-- Title -->
+        <div>
+          <label for="form-title" class="block text-sm font-semibold text-slate-700 mb-1">Title <span class="text-red-500" aria-hidden="true">*</span></label>
+          <input id="form-title" type="text" required placeholder="e.g. Dune, Interstellar…" class="w-full rounded-xl border border-slate-200 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-sky-200 placeholder:text-slate-400" />
+          <p id="form-title-err" class="mt-1 text-xs text-red-500 hidden" role="alert">Title is required.</p>
+        </div>
+
+        <!-- Type + Genre — two columns -->
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label for="form-type" class="block text-sm font-semibold text-slate-700 mb-1">Type</label>
+            <select id="form-type" class="w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-sky-200 bg-white">
+              <option value="Book">📚 Book</option>
+              <option value="Movie">🎬 Movie</option>
+            </select>
+          </div>
+          <div>
+            <label for="form-genre" class="block text-sm font-semibold text-slate-700 mb-1">Genre <span class="text-slate-400 font-normal">(optional)</span></label>
+            <input id="form-genre" type="text" placeholder="e.g. Sci-Fi, Romance…" class="w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-sky-200 placeholder:text-slate-400" list="genre-suggestions" />
+            <!-- Common genre suggestions via datalist — no library needed -->
+            <datalist id="genre-suggestions">
+              <option value="Action">
+              <option value="Adventure">
+              <option value="Sci-Fi">
+              <option value="Fantasy">
+              <option value="Romance">
+              <option value="Thriller">
+              <option value="Horror">
+              <option value="Drama">
+              <option value="Comedy">
+              <option value="Documentary">
+              <option value="Self-Help">
+              <option value="Biography">
+              <option value="History">
+              <option value="Mystery">
+              <option value="Classic">
+            </datalist>
+          </div>
+        </div>
+
+        <!-- Status -->
+        <div>
+          <label for="form-status" class="block text-sm font-semibold text-slate-700 mb-1">Status</label>
+          <select id="form-status" class="w-full rounded-xl border border-slate-200 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-sky-200 bg-white">
+            <option value="Up Next">Up Next</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Done">Done</option>
+          </select>
+        </div>
+
+        <!-- Progress fields — shown only when status = In Progress (toggled by JS) -->
+        <div id="form-progress-group" class="hidden">
+          <label class="block text-sm font-semibold text-slate-700 mb-1">Progress <span class="text-slate-400 font-normal">(optional)</span></label>
+          <div class="flex gap-2">
+            <input
+              id="form-progress-label"
+              type="text"
+              placeholder="e.g. Chapter 7, Episode 3…"
+              class="flex-1 rounded-xl border border-slate-200 px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-sky-200 placeholder:text-slate-400"
+            />
+            <input
+              id="form-progress-value"
+              type="number"
+              min="0" max="100" step="1"
+              placeholder="%"
+              class="w-20 rounded-xl border border-slate-200 px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-sky-200 placeholder:text-slate-400 text-center"
+              aria-label="Progress percentage (0–100)"
+            />
+          </div>
+          <p class="mt-1 text-xs text-slate-400">Enter a % complete (0–100) to show a progress bar on the card.</p>
+        </div>
+
+        <!-- Note -->
+        <div>
+          <label for="form-note" class="block text-sm font-semibold text-slate-700 mb-1">Short Note <span class="text-slate-400 font-normal">(optional)</span></label>
+          <textarea id="form-note" rows="2" placeholder="A quick thought or reminder…" class="w-full rounded-xl border border-slate-200 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-sky-200 placeholder:text-slate-400 resize-none"></textarea>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" id="form-submit" class="w-full rounded-2xl bg-primary text-white font-semibold py-2.5 text-sm hover:bg-primary-dark transition-colors shadow-sm">
+          Save Item
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========== CONFIRM DELETE DIALOG ========== -->
+  <div id="confirm-dialog" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 hidden" role="alertdialog" aria-modal="true" aria-labelledby="confirm-title" aria-describedby="confirm-desc">
+    <div class="modal-backdrop absolute inset-0 bg-slate-900/40 backdrop-blur-sm"></div>
+    <div class="modal-panel relative w-full max-w-sm bg-white rounded-3xl shadow-2xl p-6 z-10 text-center">
+      <div class="flex justify-center mb-4">
+        <span class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-red-50 text-red-500">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/></svg>
+        </span>
+      </div>
+      <h3 id="confirm-title" class="text-lg font-bold text-slate-800 mb-1">Delete Item?</h3>
+      <p id="confirm-desc" class="text-sm text-slate-500 mb-6">This action cannot be undone.</p>
+      <div class="flex gap-3">
+        <button id="confirm-cancel" class="flex-1 rounded-2xl border border-slate-200 font-semibold text-sm py-2.5 text-slate-700 hover:bg-slate-50 transition">Cancel</button>
+        <button id="confirm-delete" class="flex-1 rounded-2xl bg-red-500 text-white font-semibold text-sm py-2.5 hover:bg-red-600 transition">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

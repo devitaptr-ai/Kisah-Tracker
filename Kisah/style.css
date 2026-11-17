@@ -1,0 +1,529 @@
+/* ===================================================
+   Kisah — style.css
+   Extra styles complementing Tailwind utilities.
+
+   Layer 3 refinements applied:
+   - Poppins typography
+   - Primary color updated to #0EA5E9 (sky blue)
+   - Glassmorphism stats cards
+   - 2-column CSS grid default, list toggle via :checked
+   - Pastel accents (lavender for Book, mint for Movie)
+   - Header SVG illustration positioning
+   =================================================== */
+
+/* ---------- Typography ---------- */
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+/* ---------- Header gradient (sky-blue palette) ---------- */
+.kisah-header {
+  background: linear-gradient(135deg, #0369A1 0%, #0EA5E9 55%, #38BDF8 100%);
+}
+
+/* ---------- Decorative blurred circles ---------- */
+.deco-circle {
+  position: absolute;
+  border-radius: 9999px;
+  opacity: 0.22;
+  filter: blur(60px);
+  pointer-events: none;
+}
+.deco-circle-1 {
+  width: 300px;
+  height: 300px;
+  background: #7DD3FC;   /* sky-300 */
+  top: -80px;
+  right: -60px;
+}
+.deco-circle-2 {
+  width: 180px;
+  height: 180px;
+  background: #BAE6FD;   /* sky-200 */
+  bottom: -50px;
+  left: 10%;
+}
+
+/* ---------- Header illustration ---------- */
+.header-illustration {
+  display: none;          /* hidden on mobile */
+  opacity: 0.9;
+  flex-shrink: 0;
+}
+@media (min-width: 640px) {
+  .header-illustration { display: block; }
+}
+
+/* ---------- Add button hover glow (sky palette) ---------- */
+.add-btn:hover {
+  box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.22), 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* ---------- Modal overlay fade ---------- */
+.modal-overlay {
+  animation: fadeIn 0.18s ease;
+}
+.modal-panel {
+  animation: slideUp 0.22s cubic-bezier(0.34, 1.3, 0.64, 1);
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(28px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)     scale(1);    }
+}
+
+/* ---------- Item card ---------- */
+.item-card {
+  background: #ffffff;
+  border-radius: 1rem;        /* rounded-2xl */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.04);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  display: flex;
+  overflow: hidden;
+}
+.item-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(14,165,233,0.15), 0 2px 6px rgba(0,0,0,0.06);
+}
+
+/* ---------- Cover block ---------- */
+.cover-block {
+  flex-shrink: 0;
+  width: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Book cover: sky blue gradient (new primary) */
+.cover-block.book {
+  background: linear-gradient(160deg, #0EA5E9 0%, #38BDF8 100%);
+}
+/* Movie cover: a step deeper sky for contrast */
+.cover-block.movie {
+  background: linear-gradient(160deg, #0284C7 0%, #0EA5E9 100%);
+}
+.cover-block svg {
+  color: rgba(255,255,255,0.88);
+}
+
+/* ---------- Status badges ---------- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  letter-spacing: 0.01em;
+}
+.badge-upnext {
+  background: #E0F2FE;   /* sky-100 */
+  color: #0369A1;        /* sky-700 — WCAG AA on white */
+}
+.badge-inprogress {
+  background: #BAE6FD;   /* sky-200 */
+  color: #075985;        /* sky-800 — WCAG AA */
+}
+.badge-done {
+  background: #DCFCE7;
+  color: #16A34A;
+}
+
+/* ---------- Star rating ---------- */
+.star-rating {
+  display: flex;
+  gap: 2px;
+}
+.star-btn {
+  background: none;
+  border: none;
+  padding: 2px;
+  cursor: pointer;
+  color: #D1D5DB;   /* gray when empty */
+  transition: color 0.12s, transform 0.1s;
+  line-height: 1;
+}
+.star-btn.filled {
+  color: #F59E0B;   /* amber — unchanged */
+}
+.star-btn:not(:disabled):hover,
+.star-btn:not(:disabled):focus-visible {
+  color: #FBBF24;
+  transform: scale(1.2);
+  outline: none;
+}
+.star-btn:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+
+/* ---------- Filter pill buttons (sky primary) ---------- */
+.filter-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  background: #ffffff;
+  color: #475569;
+  border-color: #E2E8F0;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+.filter-pill:hover {
+  border-color: #7DD3FC;    /* sky-300 */
+  color: #0EA5E9;
+}
+.filter-pill.active {
+  background: #0EA5E9;
+  color: #ffffff;
+  border-color: #0EA5E9;
+  box-shadow: 0 2px 8px rgba(14,165,233,0.3);
+}
+
+/* ============================================================
+   GLASSMORPHISM STATS SECTION
+   .stats-glass-bg provides the colourful gradient backdrop
+   so the frosted-glass effect on each .stat-card is visible.
+   ============================================================ */
+.stats-glass-bg {
+  /* Soft multi-stop gradient: sky → lavender → mint */
+  background: linear-gradient(135deg,
+    #BAE6FD 0%,     /* sky-200 */
+    #C7D2FE 35%,    /* indigo-200 — lavender tone */
+    #A7F3D0 100%    /* emerald-200 — mint tone */
+  );
+  border-radius: 1.25rem;
+  padding: 16px;
+}
+
+/* Glassmorphism stat card */
+.stat-card {
+  background: rgba(255, 255, 255, 0.60);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.80);
+  border-radius: 0.875rem;
+  padding: 14px 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.stat-icon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---------- Empty state ---------- */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 56px 24px;
+  color: #94A3B8;
+  text-align: center;
+}
+.empty-state svg {
+  margin-bottom: 16px;
+  opacity: 0.45;
+}
+
+/* ---------- Status select on card ---------- */
+.status-select {
+  appearance: none;
+  -webkit-appearance: none;
+  font-family: inherit;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 2px 20px 2px 8px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 6px center;
+  background-size: 10px;
+  outline: none;
+  transition: box-shadow 0.15s;
+}
+.status-select:focus-visible {
+  box-shadow: 0 0 0 2px rgba(14,165,233,0.4);   /* sky focus ring */
+}
+/* Up Next — sky pastel */
+.status-select.upnext {
+  background-color: #E0F2FE;
+  color: #0369A1;
+}
+/* In Progress — deeper sky pastel */
+.status-select.inprogress {
+  background-color: #BAE6FD;
+  color: #075985;
+}
+/* Done — green, unchanged */
+.status-select.done {
+  background-color: #DCFCE7;
+  color: #16A34A;
+}
+
+/* ============================================================
+   PASTEL TYPE BADGE ACCENTS
+   .type-badge-book  = soft lavender  (purple-100 / violet text)
+   .type-badge-movie = soft mint      (emerald-100 / emerald text)
+   These replace the old blue/sky Tailwind utility classes in JS.
+   WCAG AA: lavender bg #EDE9FE with text #5B21B6 = 5.5:1 ✓
+            mint bg    #D1FAE5 with text #065F46 = 5.8:1 ✓
+   ============================================================ */
+.type-badge-book {
+  background: #EDE9FE;   /* violet-100 — lavender pastel */
+  color: #5B21B6;        /* violet-800 — WCAG AA */
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 9999px;
+}
+.type-badge-movie {
+  background: #D1FAE5;   /* emerald-100 — mint pastel */
+  color: #065F46;        /* emerald-900 — WCAG AA */
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 9999px;
+}
+
+/* ============================================================
+   VIEW MODE TOGGLE — Pure CSS, no JavaScript
+   Pattern: hidden radio inputs → sibling CSS selectors drive
+   the layout of #items-grid.
+
+   DOM order in index.html (all direct children of <main>):
+     input#view-grid  (radio, name=view-mode)   ← hidden
+     input#view-list  (radio, name=view-mode)   ← hidden
+     .view-toggle-bar  (labels with for= attributes)
+     #items-grid  ← general sibling of the radios
+
+   Active label:  #view-grid:checked ~ .view-toggle-bar [for="view-grid"]
+   Grid layout:   #view-grid:checked ~ #items-grid
+   List layout:   #view-list:checked ~ #items-grid
+   ============================================================ */
+
+/* Hide the native radio circles */
+.view-radio {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+/* Toggle bar container */
+.view-toggle-bar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* View mode label (the visible pill button) */
+.view-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1.5px solid #E2E8F0;
+  background: #ffffff;
+  color: #475569;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  transition: background 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  user-select: none;
+}
+.view-label:hover {
+  border-color: #7DD3FC;
+  color: #0EA5E9;
+}
+
+/*
+  Active label state.
+  The radios are siblings of .view-toggle-bar (not siblings of the labels).
+  Use: #view-grid:checked ~ .view-toggle-bar [for="view-grid"]
+  This targets the label inside the sibling .view-toggle-bar div.
+*/
+#view-grid:checked ~ .view-toggle-bar [for="view-grid"],
+#view-list:checked ~ .view-toggle-bar [for="view-list"] {
+  background: #0EA5E9;
+  color: #ffffff;
+  border-color: #0EA5E9;
+  box-shadow: 0 2px 8px rgba(14,165,233,0.3);
+}
+
+/* Spacer between labels and item count */
+.view-toggle-spacer {
+  flex: 1;
+}
+
+/* Item count badge */
+.view-count {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #64748B;
+}
+
+/* ---- Default: Grid mode (view-grid is checked by default) ---- */
+/* Mobile: single column always */
+#items-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+/*
+  #view-grid and #items-grid are both direct children of <main>, so
+  the general sibling combinator ~ works directly.
+  .view-toggle-bar sits between them but that's fine — ~ skips it.
+*/
+
+/* Desktop ≥640px: 2-column grid when view-grid is checked */
+@media (min-width: 640px) {
+  #view-grid:checked ~ #items-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* List mode: force 1 column regardless of breakpoint */
+#view-list:checked ~ #items-grid {
+  grid-template-columns: 1fr;
+}
+
+/* In grid mode on desktop: adjust card and cover for wider column width */
+@media (min-width: 640px) {
+  #view-grid:checked ~ #items-grid .item-card {
+    align-items: stretch;
+  }
+  #view-grid:checked ~ #items-grid .cover-block {
+    width: 60px;
+  }
+}
+
+/* ---------- Custom scrollbar (Webkit) ---------- */
+::-webkit-scrollbar { width: 7px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #BAE6FD; border-radius: 99px; }  /* sky-200 */
+::-webkit-scrollbar-thumb:hover { background: #7DD3FC; }                  /* sky-300 */
+
+/* ---------- Smooth focus ring for form inputs (sky palette) ---------- */
+input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(14,165,233,0.25);
+}
+
+/* ============================================================
+   LAYER 2 ADDITIONS — Genre Tags, Sorting, Progress Bar,
+   Favorite Toggle
+   ============================================================ */
+
+/* ---------- Genre badge ----------
+   Neutral amber-tinted pill, distinct from type and status.
+   WCAG AA: #FEF3C7 bg with #92400E text = 5.3:1 ✓             */
+.genre-badge {
+  background: #FEF3C7;   /* amber-100 */
+  color: #92400E;        /* amber-800 */
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 9999px;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+/* ---------- Sort selector (search row) ---------- */
+.sort-select {
+  flex-shrink: 0;
+  min-width: 0;
+  /* Prevent it from stretching the row on mobile */
+  max-width: 160px;
+  cursor: pointer;
+}
+
+/* ---------- Progress bar ---------- */
+.progress-bar-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2px;
+}
+.progress-bar-track {
+  flex: 1;
+  height: 5px;
+  background: #E0F2FE;   /* sky-100 */
+  border-radius: 9999px;
+  overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #0EA5E9 0%, #38BDF8 100%);
+  border-radius: 9999px;
+  transition: width 0.4s ease;
+}
+.progress-bar-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #0369A1;        /* sky-700 — WCAG AA on white = 4.6:1 ✓ */
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ---------- Favorite (heart) button on card ----------
+   Default: ghost icon, slate-300.
+   Active: filled rose/pink heart with gentle glow.
+   Hover on inactive: rose preview.
+   WCAG: rose-500 (#F43F5E) on white card = 3.6:1 — decorative icon,
+         aria-label carries the accessible name.                   */
+.fav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 8px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #CBD5E1;        /* slate-300 */
+  transition: color 0.15s, background 0.15s, transform 0.12s;
+  line-height: 1;
+}
+.fav-btn:hover {
+  color: #F43F5E;        /* rose-500 */
+  background: #FFF1F2;   /* rose-50 */
+}
+.fav-btn.active {
+  color: #F43F5E;        /* rose-500 */
+  background: #FFF1F2;
+}
+.fav-btn.active:hover {
+  color: #E11D48;        /* rose-600 */
+}
+/* Subtle heartbeat on activation */
+.fav-btn.active svg {
+  filter: drop-shadow(0 0 3px rgba(244, 63, 94, 0.4));
+}
+.fav-btn:not(:disabled):focus-visible {
+  outline: 2px solid #F43F5E;
+  outline-offset: 1px;
+}
